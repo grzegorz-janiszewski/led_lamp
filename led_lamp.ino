@@ -8,9 +8,9 @@
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
-ESP8266WebServer server(80);    // Create a webserver object that listens for HTTP request on port 80
+ESP8266WebServer server(80);    
 
-void handleRoot();              // function prototypes for HTTP handlers
+void handleRoot();             
 
 String red_color = "0";
 String green_color = "0";
@@ -107,13 +107,13 @@ void setup()
       strip.show();
       WiFiManager wifiManager;
       Serial.begin(9600);
-      //wifiManager.resetSettings();
+      
       wifiManager.autoConnect("AutoConnectAP");
       
       Serial.println("Connected.");
 
       server.on("/", HTTP_GET, handleRoot);
-      //server.on("/", HTTP_POST, handlePostData);
+      
       server.begin();                            // Actually start the server
       Serial.println("HTTP server started");
 }
